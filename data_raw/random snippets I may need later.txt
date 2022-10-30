@@ -1,0 +1,11 @@
+
+pairs(minidf[ , 29:32],
+      col = "red",                                         # Change color
+      pch = 18)                                         # Change shape of points
+
+df %>% count(Side)
+
+library("GGally")
+ggpairs(minidf, columns = 35:38, title = "",  
+        axisLabels = "show", columnLabels = colnames(minidf[, 35:38]
+        ))
