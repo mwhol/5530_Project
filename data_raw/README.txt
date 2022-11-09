@@ -1,6 +1,3 @@
-Downloaded from: https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
-Download the zip file from the above link, extract the csv to the raw folder then begin running the scripts
-
 #	Attribute	Nullable	Description
 1	ID	No	This is a unique identifier of the accident record.
 2	Severity	No	Shows the severity of the accident, a number between 1 and 4, where 1 indicates the least impact on traffic (i.e., short delay as a result of the accident) and 4 indicates a significant impact on traffic (i.e., long delay).
