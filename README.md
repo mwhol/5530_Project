@@ -1,0 +1,2 @@
+Our Raw Data and cleaned datasets are very large and cannot be included fully here. We have included a small subset directly 
+but if you would like to download it in full please get it at the following link: https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents

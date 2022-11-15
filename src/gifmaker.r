@@ -4,7 +4,7 @@ library(tidyverse)
 library(magick)
 
 
-df <- US_Accidents_Dec21_updated
+df <- read.csv("../data_clean/Accidents_Sai.csv", stringsAsFactors = TRUE)
 
 df$month <- month(df$Start_Time)
 
@@ -20,6 +20,7 @@ df1 = data.frame(month = c(1 : 12),
                  Percentage = 0)
 
 g <- rbind(g, df1)
+rm(df)
 
 ## create a directory to which the images will be written
 dir_out <- file.path(tempdir(), "wrecksbymonth")
@@ -71,23 +72,16 @@ for (m in months) {
 
 ##############
 
-imgs <- list.files(dir_out, full.names = TRUE)
-img_list <- lapply(imgs, image_read)
+images <- list.files(dir_out, full.names = TRUE)
+image_list <- lapply(images, image_read)
 
-## join the images together
-img_joined <- image_join(img_list)
+images <- image_join(image_list)
+gif <- image_animate(images, fps = 2)
 
-## animate at 2 frames per second
-img_animated <- image_animate(img_joined, fps = 2)
-
-## view animated image
-img_animated
-
-fp <- file.path(dir_out, paste0(1, ".gif"))
+fp <- file.path("../results/", paste0("map_by_month", ".gif"))
 
 ## save to disk
-image_write(image = img_animated,
-            path = fp)
+image_write(image = gif, path = fp)
 
 
 
